@@ -1,18 +1,18 @@
 {
-  "CONTRACT_ADDRESS": "0xfad985dd04e4c4c1747bd262f101d1265ceeb04b",
-  "SCAN_LINK": "https://etherscan.io/address/0xfad985dd04e4c4c1747bd262f101d1265ceeb04b",
+  "CONTRACT_ADDRESS": "0x0a62e79109f1068e1ece6eceab101c45092fe58f",
+  "SCAN_LINK": "https://etherscan.io/address/0x0a62e79109f1068e1ece6eceab101c45092fe58f",
   "NETWORK": {
     "NAME": "Ethereum",
     "SYMBOL": "Eth",
     "ID": 1
   },
-  "NFT_NAME": "RussianApe VS UkrainianDoge",
-  "SYMBOL": "RAUD",
+  "NFT_NAME": "PeculiarPugs",
+  "SYMBOL": "PCPG",
   "MAX_SUPPLY": 10000,
-  "WEI_COST": 800000000000000000,
-  "DISPLAY_COST": 0.8,
+  "WEI_COST": 100000000000000000,
+  "DISPLAY_COST": 0.1,
   "GAS_LIMIT": 300000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://opensea.io/assets/ethereum/ethereum/0xfad985dd04e4c4c1747bd262f101d1265ceeb04b",
+  "MARKETPLACE_LINK": "#",
   "SHOW_BACKGROUND": true
 }
