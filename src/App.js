@@ -14,9 +14,9 @@ export const StyledButton = styled.button`
   border: none;
   background-color: var(--secondary);
   padding: 10px;
-  font-weight: bold;
+  font-weight: thin;
   color: var(--secondary-text);
-  width: 100px;
+  width: 150px;
   cursor: pointer;
   box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
@@ -205,7 +205,7 @@ function App() {
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
           <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg alt={"gif"} src={"/config/images/gif.gif"} />
+            {/* <StyledImg alt={"gif"} src={"/config/images/gif.gif"} /> */}
           </s.Container>
           <s.SpacerLarge />
           <s.Container
@@ -237,7 +237,7 @@ function App() {
               }}
             >
               <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
-                {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+                {truncate(CONFIG.CONTRACT_ADDRESS, 42)}
               </StyledLink>
             </s.TextDescription>
             <s.SpacerSmall />
@@ -263,14 +263,14 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
-                  {CONFIG.NETWORK.SYMBOL}.
+                  1 {CONFIG.NFT_NAME} costs {CONFIG.DISPLAY_COST}{" "}
+                  {CONFIG.NETWORK.SYMBOL}
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Excluding gas fees.
+                  (Excluding gas fees)
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -282,7 +282,7 @@ function App() {
                         color: "var(--accent-text)",
                       }}
                     >
-                      Connect to the {CONFIG.NETWORK.NAME} network
+                      {/* Connect to the {CONFIG.NETWORK.NAME} network */}
                     </s.TextDescription>
                     <s.SpacerSmall />
                     <StyledButton
@@ -292,8 +292,13 @@ function App() {
                         getData();
                       }}
                     >
-                      CONNECT
+                      CONNECT USING METAMASK
                     </StyledButton>
+                    <s.TextDescription
+                  style={{ textAlign: "center", padding: 50, color: "var(--accent-text)" }}
+                >
+                  Note: Only 20 pugs can be minted in a single transaction, but you can process as many transactions as you want.
+                </s.TextDescription>
                     {blockchain.errorMsg !== "" ? (
                       <>
                         <s.SpacerSmall />
@@ -371,11 +376,11 @@ function App() {
           </s.Container>
           <s.SpacerLarge />
           <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg
+            {/* <StyledImg
               alt={"gif"}
               src={"/config/images/gif.gif"}
               style={{ transform: "scaleX(-1)" }}
-            />
+            /> */}
           </s.Container>
         </ResponsiveWrapper>
         <s.SpacerMedium />
@@ -384,22 +389,32 @@ function App() {
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
+              fontSize: "14px",
             }}
           >
             Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            Once you make the purchase, you cannot undo this action.
+            {CONFIG.NETWORK.NAME} Mainnet) and the right address.
           </s.TextDescription>
-          <s.SpacerSmall />
+          {/* <s.SpacerSmall /> */}
           <s.TextDescription
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
+              fontSize: "14px",
             }}
           >
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
             successfully mint your NFT. We recommend that you don't lower the
-            gas limit.
+            gas limit. Note: All sales are final, the transaction can't be reversed.
+          </s.TextDescription>
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+              fontSize: "14px",
+            }}
+          >
+            Note: All sales are final, the transaction can't be reversed.
           </s.TextDescription>
         </s.Container>
       </s.Container>
