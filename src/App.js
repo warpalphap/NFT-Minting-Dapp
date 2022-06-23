@@ -5,6 +5,7 @@ import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 
+
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
@@ -99,7 +100,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`Press Adopt to purchase your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -201,7 +202,15 @@ function App() {
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
-        <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
+        {/* <StyledLogo alt={"logo"} src={"/config/images/logo.png"} /> */}
+        <a href="https://peculiarpugs.io" target="_blank" rel="noreferrer">
+          <img
+            src="/config/images/logo.png"
+            alt="logo"
+            width={160}
+            height={160}
+          />
+        </a>
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
           <s.Container flex={1} jc={"center"} ai={"center"}>
@@ -228,6 +237,19 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
+              <s.TextTitle
+                  style={{ textAlign: "center", color: "var(--accent-text)", fontSize: "30px" }}
+                >
+                  1 {CONFIG.NFT_NAME} costs {CONFIG.DISPLAY_COST}{" "}
+                  {CONFIG.NETWORK.SYMBOL}
+                </s.TextTitle>
+                <s.SpacerXSmall />
+                <s.TextDescription
+                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                >
+                  (Excluding gas fees)
+                </s.TextDescription>
+                <s.SpacerSmall />
               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
             </s.TextTitle>
             <s.TextDescription
@@ -260,7 +282,7 @@ function App() {
               </>
             ) : (
               <>
-                <s.TextTitle
+                {/* <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   1 {CONFIG.NFT_NAME} costs {CONFIG.DISPLAY_COST}{" "}
@@ -271,7 +293,7 @@ function App() {
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   (Excluding gas fees)
-                </s.TextDescription>
+                </s.TextDescription> */}
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
@@ -301,7 +323,6 @@ function App() {
                 </s.TextDescription>
                     {blockchain.errorMsg !== "" ? (
                       <>
-                        <s.SpacerSmall />
                         <s.TextDescription
                           style={{
                             textAlign: "center",
@@ -365,7 +386,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "Minting" : "Mint"}
+                        {claimingNft ? "Adopting" : "Adopt"}
                       </StyledButton>
                     </s.Container>
                   </>
@@ -390,6 +411,7 @@ function App() {
               textAlign: "center",
               color: "var(--primary-text)",
               fontSize: "14px",
+              textShadow: "2px 2px #222",
             }}
           >
             Please make sure you are connected to the right network (
@@ -401,6 +423,7 @@ function App() {
               textAlign: "center",
               color: "var(--primary-text)",
               fontSize: "14px",
+              textShadow: "2px 2px #222",
             }}
           >
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
@@ -412,6 +435,7 @@ function App() {
               textAlign: "center",
               color: "var(--primary-text)",
               fontSize: "14px",
+              textShadow: "2px 2px #222",
             }}
           >
             Note: All sales are final, the transaction can't be reversed.
