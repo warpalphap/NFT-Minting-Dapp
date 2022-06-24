@@ -100,7 +100,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Press Adopt to purchase your NFT.`);
+  const [feedback, setFeedback] = useState(`Press ADOPT to purchase your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -259,7 +259,7 @@ function App() {
               }}
             >
               <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
-                {truncate(CONFIG.CONTRACT_ADDRESS, 42)}
+                {truncate(CONFIG.CONTRACT_ADDRESS, 30)}
               </StyledLink>
             </s.TextDescription>
             <s.SpacerSmall />
@@ -319,7 +319,7 @@ function App() {
                     <s.TextDescription
                   style={{ textAlign: "center", padding: 50, color: "var(--accent-text)" }}
                 >
-                  Note: Only 20 pugs can be minted in a single transaction, but you can process as many transactions as you want.
+                  Note: Only 10 pugs can be adopted in a single transaction, but you can process as many transactions as you want.
                 </s.TextDescription>
                     {blockchain.errorMsg !== "" ? (
                       <>
@@ -386,7 +386,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "Adopting" : "Adopt"}
+                        {claimingNft ? "ADOPTING" : "ADOPT"}
                       </StyledButton>
                     </s.Container>
                   </>
@@ -428,7 +428,7 @@ function App() {
           >
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
             successfully mint your NFT. We recommend that you don't lower the
-            gas limit. Note: All sales are final, the transaction can't be reversed.
+            gas limit.
           </s.TextDescription>
           <s.TextDescription
             style={{

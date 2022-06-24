@@ -3,10 +3,10 @@
   "SCAN_LINK": "https://etherscan.io/address/0x0a62e79109f1068e1ece6eceab101c45092fe58f",
   "NETWORK": {
     "NAME": "Ethereum",
-    "SYMBOL": "Eth",
+    "SYMBOL": "ETH",
     "ID": 1
   },
-  "NFT_NAME": "Peculiar Pugs",
+  "NFT_NAME": "Peculiar Pug",
   "SYMBOL": "PCPG",
   "MAX_SUPPLY": 10000,
   "WEI_COST": 100000000000000000,
