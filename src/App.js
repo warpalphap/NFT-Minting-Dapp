@@ -319,7 +319,7 @@ function App() {
                     <s.TextDescription
                   style={{ textAlign: "center", padding: 50, color: "var(--accent-text)" }}
                 >
-                  Note: Only 10 pugs can be adopted in a single transaction, but you can process as many transactions as you want.
+                  Note: Only 20 pugs can be adopted in a single transaction, but you can process as many transactions as you want.
                 </s.TextDescription>
                     {blockchain.errorMsg !== "" ? (
                       <>
